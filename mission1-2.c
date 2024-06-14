@@ -43,9 +43,9 @@ int main(){ //프로그램 시작
                     printf("%.1f * %.1f = %.1f\n", num1, num2, num1 * num2); //계산결과 출력 
                 }else if(caseoneinput == '%'){
                     printf("첫 번째 수를 입력하세요: "); //첫번째수 입력요쳥 
-                    scanf("%d", &num1); //첫번째수 입력 
+                    scanf("%d", &num3); //첫번째수 입력 
                     printf("두 번째 수를 입력하세요: "); //두번째수 입력요청
-                    scanf("%d", &num2); //첫번째수 입력 
+                    scanf("%d", &num4); //첫번째수 입력 
                     if(num4 == 0){ //만약 두번째수가 0이면 
                         printf("오류\n"); //오류를 출력 
                     } else { //아니면
