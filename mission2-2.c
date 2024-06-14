@@ -1,9 +1,12 @@
 #include <stdio.h> // 기본 함수를 가져옴 
+#include <math.h> //제곱근을 사용할수 있는 함수를 불려옴 
 
 int main(){ //프로그램 시작 
     int modecode,num3,num4,typecode,s=0,m=0,h=0; // 모드선택과 입력값 저장을 위한 정수형 변수 생성 
     char caseoneinput,casetwoinput; //입력값 저장을 위한 문자형변수 생성
-    float num1,num2; //입력값 저장을 위한 실수형변수 생성
+    float num1,num2,num5,t1,t2,t3; //입력값 저장을 위한 실수형변수 생성
+    double ss, area;
+    float pi = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421;
     while(1){ // 무한반복 
         printf("모드를 입력해주세요."); //사용자에게 모드코드 입력요청 하기위해 콘솔창에 메시지 출력
         scanf("%d", &modecode); //사용자에게 모드코드를 입력받는부분 
@@ -115,9 +118,50 @@ int main(){ //프로그램 시작
 				} 
                 break; //반복문 탈출 
             case 3: //모드코드 3을 입력했을때 
-				printf("어떻게 변환할까요?  (1: 삼각형넓이 계산(밑변,높이입력), 2:삼각형넓이 계산(세 변의 길이입력), 3:사다리꼴넚이 계산(윗변,아랫변,높이입력), 4:직사각형넚이 계산(가로,세로 입력), 5:원의 넚이 계산(반지름 입력)"); //변환할 종류코드 입력요청 
-				scanf("%d",&typecode); //변환할 종류코드 입력 
-                printf("넓이 계산 모드가 선택되었습니다.\n"); // 모드설명 출력 
+				printf("넓이 계산 모드가 선택되었습니다.\n"); // 모드설명 출력
+				printf("어떻게 변환할까요?  (1: 삼각형넓이 계산(밑변,높이입력), 2:삼각형넓이 계산(세 변의 길이입력), 3:사다리꼴넚이 계산(윗변,아랫변,높이입력), 4:직사각형넚이 계산(가로,세로 입력), 5:원의 넓이 계산(반지름 입력)"); //변환할 종류코드 입력요청 
+				scanf("%d",&typecode); //변환할 종류코드 입력  
+				switch(typecode){
+					case 1:
+						printf("밑변의 길이를  입력해주세요");
+						scanf("%f",&num1);
+						printf("높이를 입력해주세요.");
+						scanf("%f",&num2);
+						printf("이 삼각형의 넓이는 %.2f입니다\n",num1*num2*0.5);
+						break;
+					case 2:
+						printf("첫번째 변의 길이를 입력해주세요");
+						scanf("%f",&num1); 
+						printf("두번째 변의 길이를 입력해주세요");
+						scanf("%f",&num2);
+						printf("세번째 변의 길이를 입력해주세요");
+						scanf("%f",&num5);
+						ss = (num1 + num2 + num3) / 2;
+						area = sqrt(ss * (ss - num1) * (ss - num2) * (ss - num3));
+						printf("%lf",area); 
+						break;
+					case 3:
+						printf("윗변의 길이를 입력해주세요");
+						scanf("%f",&num1);
+						printf("밑변의 길이를 입력해주세요");
+						scanf("%f",&num2);
+						num1=num1+num2;
+						printf("높이를 입력해주세요");
+						scanf("%f",&num2);
+						printf("이 사다리꼴의 넓이는 %.2f입니다\n",num1*num2*0.5);
+						break;
+					case 4:
+						printf("hi");
+						break;
+					case 5:	
+						printf("원의 반지름을 입력해주세요."); 
+						scanf("%f",&num1);
+						printf("이 원의 넓이는 %.4f입니다\n",num1*num1*pi);
+						break;
+					default:
+						printf("존재하지 않는 코드입니다.\n");
+						break;
+				} 
                 
                 break; //조건문 탈출
             case 0: //모드코드 0을 입력했을때 
